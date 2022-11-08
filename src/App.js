@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+// import { render } from "@testing-library/react";
+import React, { Component } from "react";
+import CharacterInfo from "./CharacterInfo";
+import { characters } from "./Characters";
+import SearchBox from "./SearchBox";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      characters: characters,
+      searchfield: "",
+    };
+  }
+  onSearchChange = (event) => {
+    this.setState({ searchfield: event.target.value });
+  };
+  render() {
+    const filteredCharacters = this.state.characters.filter((character) => {
+      return character.name
+        .toLowerCase()
+        .includes(this.state.searchfield.toLowerCase());
+    });
+    return (
+      <div className="tc">
+        <h1 className="text-7xl font-black decoration-1 text-green-400">
+          Star Wars Friends
+        </h1>
+        <SearchBox searchChange={this.onSearchChange} />
+        <CharacterInfo characters={filteredCharacters} />
+      </div>
+    );
+  }
 }
 
 export default App;
