@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import CharacterInfo from "./CharacterInfo";
 // import { characters } from "./Characters";
 import SearchBox from "./SearchBox";
+import Scroll from "./Scroll";
 
 class App extends Component {
   constructor() {
@@ -48,8 +49,10 @@ class App extends Component {
         <h1 className="text-7xl font-black decoration-1 text-green-400">
           Friends
         </h1>
-        <SearchBox searchChange={this.onSearchChange} />
-        <CharacterInfo characters={filteredCharacters} />
+          <SearchBox searchChange={this.onSearchChange} />
+          <Scroll>
+            <CharacterInfo characters={filteredCharacters} />
+            </Scroll>
       </div>
     );
     }
