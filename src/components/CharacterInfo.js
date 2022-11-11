@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 // import { characters } from "./Characters";
 
-const CharacterInfo = ({characters}) => {
+const CharacterInfo = ({ characters }) => {
   const cardComponent = characters.map((user, i) => {
     return (
       <Card
@@ -14,11 +14,7 @@ const CharacterInfo = ({characters}) => {
       />
     );
   });
-   return(
-   <div>
-      {cardComponent}
-      </div>
-   );
+  return <div>{cardComponent}</div>;
 };
 
 export default CharacterInfo;

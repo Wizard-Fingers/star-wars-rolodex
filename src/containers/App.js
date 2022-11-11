@@ -1,9 +1,9 @@
 // import { render } from "@testing-library/react";
 import React, { Component } from "react";
-import CharacterInfo from "./CharacterInfo";
+import CharacterInfo from "../components/CharacterInfo";
 // import { characters } from "./Characters";
-import SearchBox from "./SearchBox";
-import Scroll from "./Scroll";
+import SearchBox from "../components/SearchBox";
+import Scroll from "../components/Scroll";
 
 class App extends Component {
   constructor() {
@@ -44,17 +44,17 @@ class App extends Component {
       );
     } else {
       return (
-    // console.log('render ')
-      <div className="tc">
-        <h1 className="text-7xl font-black decoration-1 text-green-400">
-          Friends
-        </h1>
+        // console.log('render ')
+        <div className="tc">
+          <h1 className="text-7xl font-black decoration-1 text-green-400">
+            Friends
+          </h1>
           <SearchBox searchChange={this.onSearchChange} />
           <Scroll>
             <CharacterInfo characters={filteredCharacters} />
-            </Scroll>
-      </div>
-    );
+          </Scroll>
+        </div>
+      );
     }
   }
 }
